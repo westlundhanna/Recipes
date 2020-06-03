@@ -14,3 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/recept', function () {
+    // det utkommenterade fungerar ej. Ska göra så att alla recept i databasen skrivs ut på sidan Recept.
+//     $recipes = recipe::all();
+
+    return view('recept');
+    // return view('recept', [
+    //     'recipe' => $recipes
+    // ]);
+
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/recept','RecipesController@show')->name('recept');
+// Route::get('/recept', 'receptController')->name('recept');
