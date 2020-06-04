@@ -31,3 +31,8 @@ ul.Nav__Items {
     height: 100px;
     justify-content: space-between;
 }
+
+footer {
+    height: 100px;
+    background-color: #738963;
+}

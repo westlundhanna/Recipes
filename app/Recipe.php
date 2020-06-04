@@ -11,10 +11,6 @@ class Recipe extends Model
     protected $primaryKey = 'recipesId'; 
 
 }
-// $recipes = App\Recipe::all();
 
-// foreach($recipes as $recipe) {
-//     echo $recipe->recipesNamn;
-// }
 
 return view('recept');
