@@ -13,7 +13,7 @@ class CreateRecipeCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('recipe_category', function (Blueprint $table) {
+        Schema::create('recipecategory', function (Blueprint $table) {
             $table->bigIncrements('recipeCategoryId');
             $table->unsignedInteger('recipeCategoryRid');
             $table->unsignedInteger('recipeCategoryCid');

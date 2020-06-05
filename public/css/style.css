@@ -3,27 +3,47 @@
     margin: 0;
 }
 
+
+/* Nav */
+
+body {
+    background-color: #E5E5E5;
+    font-family: 'Quicksand', sans-serif;
+}
+
 .navbar {
     background-color: #738963;
 }
+
 .Page-Title {
     text-align: center;
 }
 
 .Nav-Logo {
-    color: white;
+    margin: 35px;
+    color: #58482C;
+    font-size: 28px;
+    font-family: 'Quicksand', sans-serif;
 }
+
 a {
     text-decoration: none;
 }
+
 li {
     list-style-type: none;
 }
+
 .Nav__Item a {
     color: white;
+    padding: 50px;
 }
+
 ul.Nav__Items {
     display: flex;
+    margin: 40px;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .Nav__Container {
@@ -32,7 +52,99 @@ ul.Nav__Items {
     justify-content: space-between;
 }
 
+
+/* Main */
+
+.py-4 {
+    min-height: 80vh;
+    background-color: blue;
+}
+
+
+/* Footer */
+
+
+/*---- style Login--------*/
+
+.form-group.row {
+    margin-left: 30px;
+}
+
+.form-check {
+    margin-left: 30px;
+}
+
+.col-md-8.offset-md-4 {
+    margin-left: 10px;
+}
+
+a.btn.btn-link {
+    margin-left: 55px;
+}
+
+
+/*---- style register-----*/
+
+.card {
+    background: #E5E5E5;
+    min-height: 70.5vh;
+}
+
+.card-header {
+    text-align: center;
+    font-size: 28px;
+    padding-top: 40px;
+    font-family: 'Quicksand', sans-serif;
+    color: #000000;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    align-items: center;
+    width: 25%;
+    /*padding: 5vh;*/
+    padding: 3vh;
+    border-radius: 50px;
+    margin-left: 610px;
+    margin-top: 28px;
+}
+
+label {
+    font-size: 20px;
+    margin: 17px;
+}
+
+input {
+    background: #E5E5E5;
+    margin: 1vh;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2.7vh;
+    border-style: none;
+}
+
+.col-md-6 {
+    margin: 1vh;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2.7vh;
+    border-style: none;
+}
+
+.btn.btn-primary {
+    border: none;
+    background: #B74921;
+    margin: 2vh;
+    width: 240px;
+    padding: 15px;
+    border-radius: 50px;
+    color: #FFFFFF;
+}
+
 footer {
-    height: 100px;
+    /* height: 100px;
+    background-color: #738963;*/
+    height: 111px;
     background-color: #738963;
+    margin-top: 20px;
 }
