@@ -3,9 +3,13 @@
     margin: 0;
 }
 
+
+/* Nav */
+
 .navbar {
     background-color: #738963;
 }
+
 .Page-Title {
     text-align: center;
 }
@@ -13,15 +17,19 @@
 .Nav-Logo {
     color: white;
 }
+
 a {
     text-decoration: none;
 }
+
 li {
     list-style-type: none;
 }
+
 .Nav__Item a {
     color: white;
 }
+
 ul.Nav__Items {
     display: flex;
 }
@@ -31,6 +39,17 @@ ul.Nav__Items {
     height: 100px;
     justify-content: space-between;
 }
+
+
+/* Main */
+
+.py-4 {
+    min-height: 80vh;
+    background-color: blue;
+}
+
+
+/* Footer */
 
 footer {
     height: 100px;
