@@ -3,7 +3,7 @@
 @section('content')
 <div class="Wrapper">
     <h1 class="Page-Title">Mina Sidor</h1>
-
+<!-- Mina Sidor när man är inloggad --->
     <div class="Form__Container">
         <h3>Skapa ett nytt recept</h3>
         <form method="POST" action="/home">
