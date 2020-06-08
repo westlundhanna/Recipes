@@ -20,7 +20,7 @@ class CreateRecipeCategoryTable extends Migration
             $table->timestamps();
 
             $table->foreign('recipeCategoryCid')->references('categoryId')->on('category')->onDelete('cascade');
-            $table->foreign('recipeCategoryRid')->references('recipesId')->on('recipes')->onDelete('cascade');
+            //$table->foreign('recipeCategoryRid')->references('recipesId')->on('recipes')->onDelete('cascade');
         });
     }
 
