@@ -3,13 +3,13 @@
     margin: 0;
 }
 
-
-/* Nav */
-
 body {
     background-color: #E5E5E5;
     font-family: 'Quicksand', sans-serif;
 }
+
+
+/* Nav */
 
 .navbar {
     background-color: #738963;
@@ -56,12 +56,32 @@ ul.Nav__Items {
 /* Main */
 
 .py-4 {
-    min-height: 80vh;
-    background-color: blue;
+    min-height: 78vh;
+    background-color: #F1F2F1;
+    display: flex;
+    justify-content: center;
 }
 
+.Wrapper {
+    width: 1100px;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
 
-/* Footer */
+.recept_info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 80%;
+}
+
+.test {
+    background-image: url('../../img/soup.jpg');
+    width: 50%;
+}
 
 
 /*---- style Login--------*/
@@ -135,16 +155,20 @@ input {
     border: none;
     background: #B74921;
     margin: 2vh;
-    width: 240px;
+    width: 203px;
     padding: 15px;
     border-radius: 50px;
     color: #FFFFFF;
+    height: 67px;
+    font-size: 22px;
 }
+
+
+/* Footer */
 
 footer {
     /* height: 100px;
     background-color: #738963;*/
     height: 111px;
     background-color: #738963;
-    margin-top: 20px;
 }
