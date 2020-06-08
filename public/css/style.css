@@ -61,9 +61,6 @@ ul.Nav__Items {
 }
 
 
-/* Footer */
-
-
 /*---- style Login--------*/
 
 .form-group.row {
@@ -140,6 +137,16 @@ input {
     border-radius: 50px;
     color: #FFFFFF;
 }
+
+/*--- Alla recept ---*/
+
+.Recipe__Content {
+    text-align: center;
+    padding: 0;
+    padding-top: 50px;
+}
+
+/*--- Footer ---*/
 
 footer {
     /* height: 100px;

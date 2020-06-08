@@ -18,9 +18,10 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/recept', 'RecipeController@showall');
+Route::get('/allRecipes', 'RecipeController@showall');
     // 
 Route::post('/home', 'RecipeController@store');
+Route::get('/home', 'RecipeController@index');
 
 
 // Route::get('/recept','RecipesController@show')->name('recept');

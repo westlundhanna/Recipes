@@ -23,26 +23,8 @@ class RecipeController extends Controller
 
         Recipe::create($attributes);
 
-        // $recipe = new Recipe();
-        // $recipe->owner_id = auth()->id();
-        // $recipe->recipesNamn = request('title');
-        // $recipe->recipesIngred = request('ingredients');
-        // $recipe->recipesBeskrivn = request('description');
-
-        // $recipe->save();
-
         return redirect('/home');
         
-        // Recipe::create([
-
-        //     'owner_id' => Auth::user()->id,
-        //     'recipeNamn' => $request->title,
-        //     'recipeIngred' => $request->ingredients,
-        //     'recipeBeskrivn' => $request->description
-        //     // 'recipeKategori' => $request->recipeKategori,
-        // ]);
-    
-        // return redirect('/home');
     }
     // public function update()
     // {
@@ -52,7 +34,15 @@ class RecipeController extends Controller
     public function showall()
         {
             $recipes = Recipe::all();
-            return view('recept', ['recipes'=>$recipes]);
+            return view('allRecipes', ['recipes'=>$recipes]);
         }
+
+    public function index()
+    {
+        $myRecipes = Recipe::where('ownerId', auth()->id())->get();
+        return view('home', ['myRecipes' => $myRecipes]);
+    }
     // osv
+    
+
 }
