@@ -18,16 +18,9 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/recept', function () {
-    // det utkommenterade fungerar ej. Ska göra så att alla recept i databasen skrivs ut på sidan Recept.
-//     $recipes = recipe::all();
-
-    return view('recept');
-    // return view('recept', [
-    //     'recipe' => $recipes
-    // ]);
-
-});
+Route::get('/recept', 'RecipeController@showall');
+    // 
+Route::post('/home', 'RecipeController@store');
 
 
 // Route::get('/recept','RecipesController@show')->name('recept');

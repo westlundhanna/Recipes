@@ -4,17 +4,13 @@
 @section('content')
     <div class="Wrapper">
         <h1 class="Page-Title">RECEPT</h1>
-        <?php
-        $recipes = App\Recipe::all();
-
-        foreach($recipes as $recipe) {
-            echo $recipe->recipesId;
-            echo $recipe->recipesNamn;
-            echo $recipe->recipesIngred;
-            echo $recipe->recipesBeskrivn;
-            echo $recipe->recipesKategori;
-        }
-        ?>
+        @foreach($recipes as $recipe)
+            {{ $recipe->recipesNamn }}
+            {{ $recipe->recipesIngred }}
+            {{ $recipe->recipesBeskrivn }}
+            {{ $recipe->recipesKategori }}
+        @endforeach
+        
     </div>
 
 @endsection
