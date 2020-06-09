@@ -15,7 +15,7 @@ class CreateRecipesTable extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->increments('recipesId');
-            $table->unsignedInteger('ownerId');
+            $table->unsignedBigInteger('ownerId');
             $table->string('recipesNamn');
             $table->text('recipesIngred');
             $table->text('recipesBeskrivn');

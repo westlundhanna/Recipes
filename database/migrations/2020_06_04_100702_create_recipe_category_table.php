@@ -13,14 +13,14 @@ class CreateRecipeCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('recipecategory', function (Blueprint $table) {
+        Schema::create('recipe_category', function (Blueprint $table) {
             $table->bigIncrements('recipeCategoryId');
             $table->unsignedInteger('recipeCategoryRid');
             $table->unsignedInteger('recipeCategoryCid');
             $table->timestamps();
 
             $table->foreign('recipeCategoryCid')->references('categoryId')->on('category')->onDelete('cascade');
-            //$table->foreign('recipeCategoryRid')->references('recipesId')->on('recipes')->onDelete('cascade');
+            // $table->foreign('recipeCategoryRid')->references('recipesId')->on('recipes')->onDelete('cascade');
         });
     }
 
