@@ -22,6 +22,7 @@ Route::get('/allRecipes', 'RecipeController@showall');
     // 
 Route::post('/home', 'RecipeController@store');
 Route::get('/home', 'RecipeController@index');
+Route::delete('/recipes/{id}', 'RecipeController@destroy');
 
 
 // Route::get('/recept','RecipesController@show')->name('recept');
