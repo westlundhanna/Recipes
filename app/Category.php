@@ -13,6 +13,7 @@ class Category extends Model
     public function recipes()
     {
         return $this->hasMany('App\Recipe');
+
     }
 }
 

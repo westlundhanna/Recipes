@@ -29,7 +29,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="Nav__Items">
                     <li class="Nav__Item">
-                        <a class="nav-link" href="{{ url('recept') }}">{{ 'Recept' }}</a>
+                        <a class="nav-link" href="{{ url('allRecipes') }}">{{ 'Recept' }}</a>
                     </li>
                     <!-- Authentication Links -->
                     @guest
@@ -46,7 +46,6 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ 'Mina Sidor' }} <span class="caret"></span>
                             </a>
-
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();

@@ -18,9 +18,11 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/recept', 'RecipeController@showall');
+Route::get('/allRecipes', 'RecipeController@showall');
     // 
 Route::post('/home', 'RecipeController@store');
+Route::get('/home', 'RecipeController@index');
+Route::delete('/recipes/{id}', 'RecipeController@destroy');
 
 Route::get('/category', 'RecipeController@showCategory');
 // Route::get('/recept','RecipesController@show')->name('recept');
