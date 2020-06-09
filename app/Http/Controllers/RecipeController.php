@@ -44,5 +44,12 @@ class RecipeController extends Controller
     }
     // osv
     
+    public function destroy($id)
+    {
+        Recipe::find($id)->delete();
 
+        return redirect('/home');
+    }
+
+    
 }
