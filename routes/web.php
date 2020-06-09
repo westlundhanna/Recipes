@@ -22,6 +22,6 @@ Route::get('/recept', 'RecipeController@showall');
     // 
 Route::post('/home', 'RecipeController@store');
 
-
+Route::get('/category', 'RecipeController@showCategory');
 // Route::get('/recept','RecipesController@show')->name('recept');
 // Route::get('/recept', 'receptController')->name('recept');

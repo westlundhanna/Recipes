@@ -55,4 +55,17 @@ class RecipeController extends Controller
             return view('recept', ['recipes'=>$recipes]);
         }
     // osv
+
+    public function showCategory()
+    {
+        $category = Recipe::where('recipesCategory')->get('recipesKategori');
+        return view('category', ['recipes' => $category]);
+    }
+    
+    // public function index()
+    // {
+    //     $myRecipes = Recipe::where('ownerId', auth()->id())->get();
+    //     return view('home', ['myRecipes' => $myRecipes]);
+    // }
 }
+

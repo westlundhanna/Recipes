@@ -18,10 +18,10 @@ class Recipe extends Model
         'recipesKategori'
     ]; 
 
-    public function recipe()
-    {
-        return $this->hasMany('App\Recipe');
-    }
+    // public function recipe()
+    // {
+    //     return $this->hasMany('App\Recipe');
+    // }
 
 }
 
