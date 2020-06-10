@@ -14,15 +14,16 @@ class CreateRecipesTable extends Migration
     public function up()
     {
         Schema::create('recipes', function (Blueprint $table) {
-            $table->increments('recipesId');
+            $table->increments('id');
             $table->unsignedInteger('ownerId');
             $table->string('recipesNamn');
             $table->text('recipesIngred');
             $table->text('recipesBeskrivn');
-            $table->string('recipesKategori');
+            $table->unsignedInteger('categoryId');
             $table->timestamps();
 
             $table->foreign('ownerId')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('categoryId')->references('id')->on('category')->onDelete('cascade');
         });
     }
 

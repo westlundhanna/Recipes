@@ -1,4 +1,3 @@
-<!-- Sidan Recept där alla recept finns -->   
 @extends('layouts.app')
 
 @section('content')
@@ -11,7 +10,7 @@
                 <button type="submit">Filtrera</button>
             </div>
         </form>
-        @foreach($recipes as $recipe)
+        @foreach($recipes->[{recipesKategori]} = 'recipesCategory')
             <div>
                 <h1>  {{ $recipe->recipesNamn }} </h1>
                 <h2> {{ $recipe->recipesIngred }} </h2>

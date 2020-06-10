@@ -8,11 +8,14 @@ class Category extends Model
 {
     protected $table = 'category';
 
-    protected $primaryKey = 'categoryId'; 
+    protected $primaryKey = 'id'; 
 
     public function recipes()
     {
         return $this->hasMany('App\Recipe');
+        
+        $category = App\Recipe::find()->categoryId;
+
     }
 }
 

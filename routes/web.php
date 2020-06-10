@@ -18,17 +18,13 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/recept', function () {
-    // det utkommenterade fungerar ej. Ska göra så att alla recept i databasen skrivs ut på sidan Recept.
-//     $recipes = recipe::all();
+Route::get('/allRecipes', 'RecipeController@showall');
+    // 
+Route::post('/home', 'RecipeController@store');
+Route::get('/home', 'RecipeController@index');
+Route::delete('/recipes/{id}', 'RecipeController@destroy');
 
-    return view('recept');
-    // return view('recept', [
-    //     'recipe' => $recipes
-    // ]);
-
-});
-
-
+Route::patch('/home/{id}', 'RecipeController@update');
+Route::get('/edit/{id}', 'RecipeController@edit');
 // Route::get('/recept','RecipesController@show')->name('recept');
 // Route::get('/recept', 'receptController')->name('recept');

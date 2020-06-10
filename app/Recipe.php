@@ -8,9 +8,21 @@ class Recipe extends Model
 {
     protected $table = 'recipes';
 
-    protected $primaryKey = 'recipesId'; 
+    protected $primaryKey = 'id'; 
+
+    protected $fillable = [
+        'ownerId',
+        'recipesNamn', 
+        'recipesIngred', 
+        'recipesBeskrivn',
+        'categoryId'
+    ]; 
+
+    public function recipe()
+    {
+        return $this->belongsTo('App\Category');
+    }
 
 }
 
-
-return view('recept');
+// return view('recept');
