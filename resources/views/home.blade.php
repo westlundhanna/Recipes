@@ -28,9 +28,16 @@
     <ul class="Recipe__Content">
         <li><h2>{{ $myRecipe->recipesNamn }}</h2></li>
         <!-- Knappar för Delete & Edit här --->
-        <div class="control">
-            <button type="submit"> Uppdatera Recept</button>
-        </div>
+        <!-- Edit Controller---->
+        <form method="GET" action="/edit/{{$myRecipe->recipesId}}">
+        {{$myRecipe->id}}
+
+        {{ csrf_field() }}
+            <div class="control">
+                <button type="submit"> Uppdatera Recept</button>
+            </div>
+        </form>
+        <!-- Delete Controller--->
         <form method="POST" action="/recipes/{{$myRecipe->recipesId}}">
             {{$myRecipe->id}}
             {{ method_field('DELETE') }}

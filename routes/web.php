@@ -23,7 +23,8 @@ Route::get('/allRecipes', 'RecipeController@showall');
 Route::post('/home', 'RecipeController@store');
 Route::get('/home', 'RecipeController@index');
 Route::delete('/recipes/{id}', 'RecipeController@destroy');
-
+Route::patch('/home', 'RecipeController@update');
+Route::get('/edit/{id}', 'RecipeController@edit');
 
 // Route::get('/recept','RecipesController@show')->name('recept');
 // Route::get('/recept', 'receptController')->name('recept');

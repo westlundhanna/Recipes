@@ -44,6 +44,7 @@ class RecipeController extends Controller
     }
     // osv
     
+    // Delete function
     public function destroy($id)
     {
         Recipe::find($id)->delete();
@@ -51,5 +52,26 @@ class RecipeController extends Controller
         return redirect('/home');
     }
 
-    
+    // Edit Function 
+    public function edit($id)
+    {
+        $Recipe = Recipe::findOrFail($id);
+
+       return view('/edit', ['Recipe'=> $Recipe]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $Recipe = Recipe::findOrFail($id);
+        //$this->authorize('update',$Recipe);
+
+        $Recipe->recipesNamn = request('recipesNamn');
+        $Recipe->recipesIngred = request('recipesIngred');
+        $Recipe->recipesBeskrivn = request('recipesBeskrivn');
+        $Recipe->recipesKategori = request('recipesKategori');
+     
+        $Recipe->save($request->all());
+        
+        return redirect('/home/'.$id);
+    }
 }
