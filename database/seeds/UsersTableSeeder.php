@@ -11,7 +11,16 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //Skapar 5 random users efter modellen i UserFactory.php
-        $users = factory(App\User::class, 5)->create();
+        // DB::table('users')->insert([
+        //     'name' => 'Lollo',
+        //     'email' => 'lollo@test.se',
+        //     'password' => '12345678',
+        // ]);
+        // DB::table('users')->insert([
+        //     'name' => 'Hanna',
+        //     'email' => 'hanna@test.se',
+        //     'password' => '12345678',
+        // ]);
     }
+
 }

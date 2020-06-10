@@ -17,6 +17,8 @@ body {
 
 .Page-Title {
     text-align: center;
+    padding-bottom: 80px;
+    padding-top: 20px;
 }
 
 .Nav-Logo {
@@ -52,10 +54,17 @@ ul.Nav__Items {
     justify-content: space-between;
 }
 
+.Container-Index {
+    width: 1100px;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+
 
 /* Main */
 
-.py-4 {
+.Wrapper {
     min-height: 78vh;
     background-color: #F1F2F1;
     display: flex;
@@ -76,6 +85,18 @@ ul.Nav__Items {
     align-items: center;
     justify-content: space-evenly;
     height: 80%;
+}
+
+.Container {
+    width: 1100px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.Image__Container {
+    background-image: url('../../img/soup.jpg');
+    width: 50%;
 }
 
 
@@ -163,8 +184,25 @@ input {
 
 .Recipe__Content {
     text-align: center;
-    padding: 0;
-    padding-top: 50px;
+    width: 33%;
+    padding: 5px;
+}
+
+.Recipe__Container {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    /* width: 95%; */
+    flex-wrap: wrap;
+}
+
+.recept_info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 80%;
 }
 
 
