@@ -16,7 +16,7 @@ class RecipeController extends Controller
             'recipesNamn' => ['required', 'min:5'],
             'recipesIngred' => ['required', 'min:3'],
             'recipesBeskrivn' => ['required', 'min:1'],
-            'recipesKategori' => ['required', 'min:1']
+            'categoryId' => ['required', 'min:1']
         ]);
 
         $attributes['ownerId'] = auth()->id();
@@ -26,10 +26,7 @@ class RecipeController extends Controller
         return redirect('/home');
         
     }
-    // public function update()
-    // {
-
-    // }
+    
 
     public function showall()
         {
@@ -51,5 +48,26 @@ class RecipeController extends Controller
         return redirect('/home');
     }
 
-    
+    // Edit Function 
+    public function edit($id)
+    {
+        $Recipe = Recipe::findOrFail($id);
+ 
+       return view('/edit', ['Recipe'=> $Recipe]);
+    }
+ 
+    public function update(Request $request, $id)
+    {
+        $Recipe = Recipe::findOrFail($id);
+        //$this->authorize('update',$Recipe);
+ 
+        $Recipe->recipesNamn = request('recipesNamn');
+        $Recipe->recipesIngred = request('recipesIngred');
+        $Recipe->recipesBeskrivn = request('recipesBeskrivn');
+        $Recipe->categoryId = request('categoryId');
+     
+        $Recipe->save();
+        
+        return redirect('/home');
+    }
 }

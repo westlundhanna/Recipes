@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="./css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -63,7 +63,7 @@
             </div>
         </div>
     </nav>
-    <main class="py-4">
+    <main class="Wrapper">
         @yield('content')
     </main>
     <footer>
