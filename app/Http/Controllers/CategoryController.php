@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function showCategory()
     {
-        $category = Category::where('recipesKategori', 'recipesCategory');
+        $category = Category::where('categoryId', 'recipesCategory');
         return view('recept', ['recipes' => $category]);
     }
 }

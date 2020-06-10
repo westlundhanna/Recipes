@@ -42,13 +42,6 @@ class RecipeController extends Controller
     // osv
 
     
-    
-    // public function index()
-    // {
-    //     $myRecipes = Recipe::where('ownerId', auth()->id())->get();
-    //     return view('home', ['myRecipes' => $myRecipes]);
-    // }
-    
     public function destroy($id)
     {
         Recipe::find($id)->delete();
