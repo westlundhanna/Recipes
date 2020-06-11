@@ -14,12 +14,13 @@
         <div class="Recipe__Container">
             @foreach($recipes as $recipe)
                 <ul class="Recipe__Content">
-                    <a href=""><li><h2>{{ $recipe->recipesNamn }}</h2></li></a>
-                    <li>{{ $recipe->recipesIngred }}</li>
-                    <li>{{ $recipe->recipesBeskrivn }}</li>
-                    <li>{{ $recipe->recipesKategori }}</li>
+                    <a href="">
+                        <li>
+                            <h2>{{ $recipe->recipesNamn }}</h2>
+                            <img src="{{ asset('storage/' . $recipe->image) }}" class="Recipe__Image--Big">
+                        </li>
+                    </a>
                 </ul>
-            <!-- </div> -->
             @endforeach
         </div>
     </div>

@@ -11,20 +11,36 @@ class RecipeController extends Controller
 
     public function store()
     {
-
         $attributes = request()->validate([
             'recipesNamn' => ['required', 'min:5'],
             'recipesIngred' => ['required', 'min:3'],
             'recipesBeskrivn' => ['required', 'min:1'],
-            'categoryId' => ['required', 'min:1']
+            'categoryId' => ['required', 'min:1'],
+            'image' => ['required']
         ]);
+        // , function () {
+        //     if(request()->hasFile('image')) {
+        //         // request()->validate([
+        //             'image' => ['file|image|max:5000'],
+        //         // ]);
+        //     }
+        // });
 
         $attributes['ownerId'] = auth()->id();
 
-        Recipe::create($attributes);
+        $recipe = Recipe::create($attributes);
+        $this->storeImage($recipe);
 
         return redirect('/home');
         
+    }
+    public function storeImage($recipe)
+    {
+        if(request()->has('image')) {
+            $recipe->update([
+                'image' => request()->image->store('uploads', 'public'),
+            ]);
+        }
     }
     
 

@@ -26,5 +26,7 @@ Route::delete('/recipes/{id}', 'RecipeController@destroy');
 
 Route::patch('/home/{id}', 'RecipeController@update');
 Route::get('/edit/{id}', 'RecipeController@edit');
+
+Route::get('/category', 'CategoryController@filterCategory');
 // Route::get('/recept','RecipesController@show')->name('recept');
 // Route::get('/recept', 'receptController')->name('recept');
