@@ -6,7 +6,7 @@
 <!-- Mina Sidor när man är inloggad --->
     <div class="Form__Container">
         <h3>Skapa ett nytt recept</h3>
-        <form method="POST" enctype="multipart/form-data" action="/home">
+        <form method="POST" action="/home" enctype="multipart/form-data">
         {{ csrf_field() }}
             <div>
                 <input type="text" name="recipesNamn" placeholder="Vad heter ditt recept?">
@@ -34,9 +34,6 @@
             <h2>{{ $myRecipe->recipesNamn }}</h2>
             <img src="{{ asset('storage/' . $myRecipe->image) }}" class="Recipe__Image">
         </li>
-
-
-
         <!-- Knappar för Delete & Edit här --->
         <form method="GET" action="/edit/{{$myRecipe->id}}">
         <!-- {{$myRecipe->id}} -->
@@ -45,6 +42,8 @@
                 <button type="submit"> Uppdatera Recept</button>
             </div>
         </form>
+        
+        
         <!-- Delete Controller--->
         <form method="POST" action="/recipes/{{$myRecipe->id}}">
             <!-- {{$myRecipe->id}} -->

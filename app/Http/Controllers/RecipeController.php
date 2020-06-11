@@ -28,8 +28,6 @@ class RecipeController extends Controller
 
         $attributes['ownerId'] = auth()->id();
 
-        // Recipe::create($attributes);
-
         $recipe = Recipe::create($attributes);
         $this->storeImage($recipe);
 
@@ -44,7 +42,6 @@ class RecipeController extends Controller
             ]);
         }
     }
-
 
     public function readAll()
     {
@@ -64,6 +61,7 @@ class RecipeController extends Controller
         return view('home', ['myRecipes' => $myRecipes]);
     }
     // osv
+
     
     public function destroy($id)
     {
@@ -95,3 +93,4 @@ class RecipeController extends Controller
         return redirect('/home');
     }
 }
+
