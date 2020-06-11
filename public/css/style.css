@@ -76,13 +76,41 @@ ul.Nav__Items {
     flex-direction: column;
     display: flex;
     align-items: center;
-    
 }
 
 .Image__Container {
-    background-image: url('../../img/soup.jpg');
     width: 50%;
 }
+
+.Recipe__Image {
+    width: 100px;
+    height: 100px;
+}
+
+.Recipe__Image--Big {
+    width: 100%;
+    height: 250px;
+}
+
+.Recipe__Image--extraBig {
+    width: 100%;
+    height: 500px;
+}
+
+.Single-Recipe__Container {
+    display: flex;
+    flex-direction: column;
+}
+
+.Recipe-Title {
+    padding-top: 70px;
+    padding-bottom: 10px;
+}
+
+.Single-Recipe__Wrapper {
+    display: flex;
+}
+
 
 /*---- style Login--------*/
 
@@ -161,18 +189,17 @@ input {
     color: #FFFFFF;
 }
 
+
 /*--- Alla recept ---*/
 
 .Recipe__Content {
     text-align: center;
     width: 33%;
     padding: 5px;
-    
 }
 
 .Recipe__Container {
     display: flex;
-    
     width: 90%;
     justify-content: space-between;
     /* width: 95%; */
@@ -188,12 +215,10 @@ input {
     height: 80%;
 }
 
+
 /*--- Footer ---*/
 
 footer {
-    /* height: 100px;
-    background-color: #738963;*/
     height: 111px;
     background-color: #738963;
-    margin-top: 20px;
 }

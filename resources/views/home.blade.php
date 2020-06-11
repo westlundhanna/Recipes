@@ -6,7 +6,7 @@
 <!-- Mina Sidor när man är inloggad --->
     <div class="Form__Container">
         <h3>Skapa ett nytt recept</h3>
-        <form method="POST" action="/home">
+        <form method="POST" enctype="multipart/form-data" action="/home">
         {{ csrf_field() }}
             <div>
                 <input type="text" name="recipesNamn" placeholder="Vad heter ditt recept?">
@@ -20,13 +20,23 @@
             <div>
                 <input type="textarea" name="categoryId" placeholder="Vilken kategori?">
             </div>
+            <div>
+            <label for="image">Ladda upp bild</label>
+                <input type="file" name="image">
+            </div>
             <button type="submit">Publicera Recept</button>
         </form>
     </div>
     <h1 class="Page-Title">Mina Recept</h1>
     @foreach($myRecipes as $myRecipe)
     <ul class="Recipe__Content">
-        <li><h2>{{ $myRecipe->recipesNamn }}</h2></li>
+        <li>
+            <h2>{{ $myRecipe->recipesNamn }}</h2>
+            <img src="{{ asset('storage/' . $myRecipe->image) }}" class="Recipe__Image">
+        </li>
+
+
+
         <!-- Knappar för Delete & Edit här --->
         <form method="GET" action="/edit/{{$myRecipe->id}}">
         <!-- {{$myRecipe->id}} -->
