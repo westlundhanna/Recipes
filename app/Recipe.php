@@ -21,7 +21,9 @@ class Recipe extends Model
 
     public function recipe()
     {
-        return $this->belongsTo('App\Category');
+        // $recipe = Recipe::with('category')->lists('categoryNamn', 'id');
+        return $this->belongsTo(Category::class, 'id');
+        // $content = Content::with('category')->lists('category.name', 'id');
     }
 
 }

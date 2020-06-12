@@ -10,7 +10,7 @@
                 <button type="submit">Filtrera</button>
             </div>
         </form>
-        @foreach($recipes->[{categoryId]} = 'recipesCategory')
+        @foreach($recipes->[{categoryId]} = 'categoryNamn')
             <div>
                 <h1>  {{ $recipe->recipesNamn }} </h1>
                 <h2> {{ $recipe->recipesIngred }} </h2>

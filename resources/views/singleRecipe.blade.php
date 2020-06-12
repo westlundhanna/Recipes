@@ -16,7 +16,7 @@
                 <h5>Beskrivning:</h5>
                 <p> {{$recipe->recipesBeskrivn}}</p>
                 <h5>Kategori:</h5>
-                <p>{{$recipe->categoryId}}</p>
+                <p>{{$recipe->recipe->categoryNamn}}</p>
             </div>  
         </div>
     </div>
