@@ -7,29 +7,95 @@ use Auth;
 use Illuminate\Http\Request;
 
 class RecipeController extends Controller
-{
+{   
 
     public function store()
     {
+        
+        $attributes['   '] = auth()->id();
+        $recipe = Recipe::create($this->validatedData());
+        
+        $this->storeImage($recipe);
+        
+        event(new NewRecipeHasRegisteredEvent($recipe));
+        
+        return redirect('/home');   
+        // $attributes = request()->validate([
+            //     'recipesNamn' => ['required', 'min:5'],
+            //     'recipesIngred' => ['required', 'min:3'],
+            //     'recipesBeskrivn' => ['required', 'min:1'],
+            //     'categoryId' => ['required', 'min:1']
+            // ]);
+            // $this ->storeImage($recipe)
+            
+            // if(request()->hasFile('image')){
+                //     // request()->image);
+                //     request()->validate([
+                    //         'image' => 'file|image|max:5000',
+                    //     ]);
+                    // }    
+                    
+                    // return $attributes;
+                    
+                    
+                    // $recipe = Recipe::  ($attributes);
+                    
+                    // return redirect('/home');
+                    
+    }
+    
 
-        $attributes = request()->validate([
+    public function validatedData() 
+    {
+        return tap(request()->validate([
             'recipesNamn' => ['required', 'min:5'],
             'recipesIngred' => ['required', 'min:3'],
             'recipesBeskrivn' => ['required', 'min:1'],
-            'recipesKategori' => ['required', 'min:1']
-        ]);
+            'categoryId' => ['required', 'min:1']
+        ]),
+        function(){
+            if(request()->hasFile('image')){
+                // request()->image);
+                request()->validate([
+                    'image' => 'file|image|max:5000',
+                ]);
+            }
+        });
 
-        $attributes['ownerId'] = auth()->id();
+        // $attributes = request()->validate([
+        //     'recipesNamn' => ['required', 'min:5'],
+        //     'recipesIngred' => ['required', 'min:3'],
+        //     'recipesBeskrivn' => ['required', 'min:1'],
+        //     'categoryId' => ['required', 'min:1']
+        // ]);
+        // $this ->storeImage($recipe)
 
-        Recipe::create($attributes);
+        // if(request()->hasFile('image')){
+        //     // request()->image);
+        //     request()->validate([
+        //         'image' => 'file|image|max:5000',
+        //     ]);
+        // }    
 
-        return redirect('/home');
-        
+        // return $attributes;
+
+        // 'ownerId'-> auth()->id();
+
+        // $recipe = Recipe::  ($attributes);
+
+        // return redirect('/home');
+
+
     }
-    // public function update()
-    // {
+    public function storeImage($recipe)
+    {
+        if(request()->has('image')) {
+            $recipe->update([
+                'image' => request()->image->store('img', 'public'),
+            ]);
+        }
+    }
 
-    // }
 
     public function showall()
         {
@@ -43,6 +109,7 @@ class RecipeController extends Controller
         return view('home', ['myRecipes' => $myRecipes]);
     }
     // osv
+
     
     // Delete function
     public function destroy($id)
@@ -56,22 +123,25 @@ class RecipeController extends Controller
     public function edit($id)
     {
         $Recipe = Recipe::findOrFail($id);
-
+ 
        return view('/edit', ['Recipe'=> $Recipe]);
     }
-
+ 
     public function update(Request $request, $id)
     {
         $Recipe = Recipe::findOrFail($id);
         //$this->authorize('update',$Recipe);
-
+ 
         $Recipe->recipesNamn = request('recipesNamn');
         $Recipe->recipesIngred = request('recipesIngred');
         $Recipe->recipesBeskrivn = request('recipesBeskrivn');
-        $Recipe->recipesKategori = request('recipesKategori');
+        $Recipe->categoryId = request('categoryId');
+
+        $this->storeImage($recipe);
      
-        $Recipe->save($request->all());
+        $Recipe->save();
         
-        return redirect('/home/'.$id);
+        return redirect('/home');
     }
 }
+
