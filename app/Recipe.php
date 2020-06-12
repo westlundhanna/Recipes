@@ -21,7 +21,7 @@ class Recipe extends Model
 
     public function recipe()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(Category::class, 'id');
     }
 
 }
