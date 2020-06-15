@@ -18,7 +18,8 @@
                 <input type="textarea" name="recipesBeskrivn" placeholder="Beskriv receptet">
             </div>
             <div>
-                <input type="textarea" name="categoryId" placeholder="Vilken kategori?">
+                <label for="categoryId">1 = Fisk, 2 = Kött, 3 = Fågel, 4 = Vegetarisk</label>
+                <input type="textarea" name="categoryId" id="categoryId" placeholder="Välj Kategori, välj en siffra">
             </div>
             <div>
             <label for="image">Ladda upp bild</label>
@@ -42,7 +43,6 @@
                 <button type="submit"> Uppdatera Recept</button>
             </div>
         </form>
-        
         
         <!-- Delete Controller--->
         <form method="POST" action="/recipes/{{$myRecipe->id}}">

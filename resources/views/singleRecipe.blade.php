@@ -11,12 +11,10 @@
             </div>
 
             <div class="Single-Recipe-Text">
-                <h5>Ingredienser:</h5>
-                <p> {{$recipe->recipesIngred}}</p>
-                <h5>Beskrivning:</h5>
-                <p> {{$recipe->recipesBeskrivn}}</p>
-                <h5>Kategori:</h5>
-                <p>{{$recipe->recipe->categoryNamn}}</p>
+                <h5 class="Single__Recipe--Header">Ingredienser:</h5>
+                <p class="Single__Recipe-Content"> {{$recipe->recipesIngred}}</p>
+                <h5 class="Single__Recipe--Header">Beskrivning:</h5>
+                <p class="Single__Recipe-Content"> {{$recipe->recipesBeskrivn}}</p>
             </div>  
         </div>
     </div>
