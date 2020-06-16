@@ -19,13 +19,6 @@ class RecipeController extends Controller
             'categoryId' => ['required', 'min:1'],
             'image' => ['required']
         ]);
-        // , function () {
-        //     if(request()->hasFile('image')) {
-        //         // request()->validate([
-        //             'image' => ['file|image|max:5000'],
-        //         // ]);
-        //     }
-        // });
 
         $attributes['ownerId'] = auth()->id();
 
@@ -83,7 +76,6 @@ class RecipeController extends Controller
     public function update(Request $request, $id)
     {
         $Recipe = Recipe::findOrFail($id);
-        //$this->authorize('update',$Recipe);
 
         $Recipe->recipesNamn = request('recipesNamn');
         $Recipe->recipesIngred = request('recipesIngred');
@@ -92,11 +84,6 @@ class RecipeController extends Controller
         $Recipe->image = request('image');
 
         if (request()->has('image')) {
-
-            // $this->storeImage($Recipe);
-            // Recipe::find($id)->image->delete('image');
-
-            // $Recipe->storeImage($Recipe);
             $Recipe->update([
                 'image' => request()->image->store('uploads', 'public'),
             ]);
