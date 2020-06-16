@@ -20,16 +20,20 @@
             <div>
                 <input type="textarea" name="categoryId" placeholder="Vilken kategori?">
             </div>
-            <label for="image">
+            <div>
+            <label for="image">Ladda upp bild</label>
                 <input type="file" name="image">
-            </label>
+            </div>
             <button type="submit">Publicera Recept</button>
         </form>
     </div>
     <h1 class="Page-Title">Mina Recept</h1>
     @foreach($myRecipes as $myRecipe)
     <ul class="Recipe__Content">
-        <li><h2>{{ $myRecipe->recipesNamn }}</h2></li>
+        <li>
+            <h2>{{ $myRecipe->recipesNamn }}</h2>
+            <img src="{{ asset('storage/' . $myRecipe->image) }}" class="Recipe__Image">
+        </li>
         <!-- Knappar för Delete & Edit här --->
         <form method="GET" action="/edit/{{$myRecipe->id}}">
         <!-- {{$myRecipe->id}} -->
@@ -38,6 +42,8 @@
                 <button type="submit"> Uppdatera Recept</button>
             </div>
         </form>
+        
+        
         <!-- Delete Controller--->
         <form method="POST" action="/recipes/{{$myRecipe->id}}">
             <!-- {{$myRecipe->id}} -->

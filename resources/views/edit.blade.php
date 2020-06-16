@@ -5,7 +5,6 @@
     <div class="Form__Container">
         <h3>Skapa ett nytt recept</h3>
         <form method="POST" action="/home/{{$Recipe->id}}">
-        {{$Recipe->id}}
         {{ method_field('PATCH') }}
  
         {{ csrf_field() }}

@@ -11,56 +11,20 @@ class RecipeController extends Controller
 
     public function store()
     {
-        
-        $attributes['   '] = auth()->id();
-        $recipe = Recipe::create($this->validatedData());
-        
-        $this->storeImage($recipe);
-        
-        event(new NewRecipeHasRegisteredEvent($recipe));
-        
-        return redirect('/home');   
-        // $attributes = request()->validate([
-            //     'recipesNamn' => ['required', 'min:5'],
-            //     'recipesIngred' => ['required', 'min:3'],
-            //     'recipesBeskrivn' => ['required', 'min:1'],
-            //     'categoryId' => ['required', 'min:1']
-            // ]);
-            // $this ->storeImage($recipe)
-            
-            // if(request()->hasFile('image')){
-                //     // request()->image);
-                //     request()->validate([
-                    //         'image' => 'file|image|max:5000',
-                    //     ]);
-                    // }    
-                    
-                    // return $attributes;
-                    
-                    
-                    // $recipe = Recipe::  ($attributes);
-                    
-                    // return redirect('/home');
-                    
-    }
-    
-
-    public function validatedData() 
-    {
-        return tap(request()->validate([
+        $attributes = request()->validate([
             'recipesNamn' => ['required', 'min:5'],
             'recipesIngred' => ['required', 'min:3'],
             'recipesBeskrivn' => ['required', 'min:1'],
-            'categoryId' => ['required', 'min:1']
-        ]),
-        function(){
-            if(request()->hasFile('image')){
-                // request()->image);
-                request()->validate([
-                    'image' => 'file|image|max:5000',
-                ]);
-            }
-        });
+            'categoryId' => ['required', 'min:1'],
+            'image' => ['required']
+        ]);
+        // , function () {
+        //     if(request()->hasFile('image')) {
+        //         // request()->validate([
+        //             'image' => ['file|image|max:5000'],
+        //         // ]);
+        //     }
+        // });
 
         // $attributes = request()->validate([
         //     'recipesNamn' => ['required', 'min:5'],
@@ -85,23 +49,30 @@ class RecipeController extends Controller
 
         // return redirect('/home');
 
+        $recipe = Recipe::create($attributes);
+        $this->storeImage($recipe);
 
     }
     public function storeImage($recipe)
     {
         if(request()->has('image')) {
             $recipe->update([
-                'image' => request()->image->store('img', 'public'),
+                'image' => request()->image->store('uploads', 'public'),
             ]);
         }
     }
 
+    public function readAll()
+    {
+        $recipes = Recipe::all();
+        return view('allRecipes', ['recipes'=>$recipes]);
+    }
 
-    public function showall()
-        {
-            $recipes = Recipe::all();
-            return view('allRecipes', ['recipes'=>$recipes]);
-        }
+    public function readOne($id)
+    {
+        $recipe = Recipe::findOrFail($id);
+        return view('singleRecipe', ['recipe'=>$recipe]);
+    }
 
     public function index()
     {

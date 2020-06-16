@@ -15,7 +15,8 @@ class Recipe extends Model
         'recipesNamn', 
         'recipesIngred', 
         'recipesBeskrivn',
-        'categoryId'
+        'categoryId',
+        'image'
     ]; 
 
     public function recipe()

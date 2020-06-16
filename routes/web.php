@@ -18,7 +18,7 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/allRecipes', 'RecipeController@showall');
+Route::get('/allRecipes', 'RecipeController@readAll');
     // 
 Route::post('/home', 'RecipeController@store');
 Route::get('/home', 'RecipeController@index');
@@ -26,5 +26,7 @@ Route::delete('/recipes/{id}', 'RecipeController@destroy');
 
 Route::patch('/home/{id}', 'RecipeController@update');
 Route::get('/edit/{id}', 'RecipeController@edit');
+
+Route::get('/singleRecipe/{id}', 'RecipeController@readOne');
 // Route::get('/recept','RecipesController@show')->name('recept');
 // Route::get('/recept', 'receptController')->name('recept');
