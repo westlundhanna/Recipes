@@ -4,7 +4,6 @@
 }
 
 body {
-    background-color: #E5E5E5;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -34,11 +33,12 @@ a {
 
 li {
     list-style-type: none;
+    display: flex;
 }
 
 .Nav__Item a {
     color: white;
-    padding: 50px;
+    padding: 0px 20px;
 }
 
 ul.Nav__Items {
@@ -80,7 +80,8 @@ ul.Nav__Items {
     height: 80%;
 }
 
-.Container {
+.Container,
+.Card__Container {
     width: 1100px;
     flex-direction: column;
     display: flex;
@@ -118,52 +119,70 @@ ul.Nav__Items {
 
 .Single-Recipe__Wrapper {
     display: flex;
+    max-width: 1100px;
+}
+
+.Single-Recipe-Text {
+    width: 50%;
+    margin-left: 20px;
+}
+
+.Single__Recipe--Header {
+    padding-bottom: 4px;
+}
+
+.Single__Recipe-Content {
+    padding-bottom: 8px;
+}
+
+.Image__Index {
+    width: 90%;
+    height: 650px;
+    border-radius: 50px;
 }
 
 
 /*---- style Login--------*/
 
-.form-group.row {
-    margin-left: 30px;
+.Checkbox__Container {
+    margin-left: 75px;
 }
 
-.form-check {
-    margin-left: 30px;
-}
-
-.col-md-8.offset-md-4 {
+.Container__Button--Login {
     margin-left: 10px;
 }
 
-a.btn.btn-link {
-    margin-left: 55px;
+.Login__Box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
 /*---- style register-----*/
 
 .card {
-    background: #E5E5E5;
     min-height: 70.5vh;
 }
 
-.card-header {
+.Card__Header {
     text-align: center;
     font-size: 28px;
     padding-top: 40px;
     font-family: 'Quicksand', sans-serif;
     color: #000000;
+    padding-bottom: 10px;
 }
 
-.card-body {
+.Card__Body {
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF;
     align-items: center;
-    width: 25%;
+    width: 50%;
     padding: 3vh;
     border-radius: 50px;
-    margin-left: 610px;
     margin-top: 28px;
 }
 
@@ -187,25 +206,71 @@ input {
     border-style: none;
 }
 
-.btn.btn-primary {
+.Button__Login,
+.Button__Recipe {
     border: none;
     background: #B74921;
     margin: 2vh;
-    width: 203px;
+    width: 272px;
     padding: 15px;
     border-radius: 50px;
     color: #FFFFFF;
     height: 67px;
-    font-size: 22px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.Button__Recipe {
+    width: 203px;
+}
+
+.Button__Login:hover,
+.Button__Recipe:hover {
+    background-color: #E46638;
+    cursor: pointer;
 }
 
 
 /*--- Alla recept ---*/
 
+.Recipes__Wrapper {
+    display: flex;
+}
+
+.Recipe__Filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .Recipe__Content {
     text-align: center;
     width: 33%;
     padding: 5px;
+}
+
+.Recipe__Title {
+    z-index: -1;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: white;
+    width: 100%;
+    height: 99%;
+    /* opacity: 0; */
+}
+
+.Recipe__Link {
+    position: relative;
+}
+
+.Recipe__Link:hover img {
+    filter: blur(2px) brightness(70%);
+}
+
+.Recipe__Link:hover .Recipe__Title {
+    z-index: 1;
 }
 
 .Recipe__Container {

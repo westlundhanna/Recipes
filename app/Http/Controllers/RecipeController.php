@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Recipe;
 use Auth;
 
@@ -52,10 +53,13 @@ class RecipeController extends Controller
         $recipe = Recipe::create($attributes);
         $this->storeImage($recipe);
 
+        return redirect('/home');
     }
+
+
     public function storeImage($recipe)
     {
-        if(request()->has('image')) {
+        if (request()->has('image')) {
             $recipe->update([
                 'image' => request()->image->store('uploads', 'public'),
             ]);
@@ -65,13 +69,13 @@ class RecipeController extends Controller
     public function readAll()
     {
         $recipes = Recipe::all();
-        return view('allRecipes', ['recipes'=>$recipes]);
+        return view('allRecipes', ['recipes' => $recipes]);
     }
 
     public function readOne($id)
     {
         $recipe = Recipe::findOrFail($id);
-        return view('singleRecipe', ['recipe'=>$recipe]);
+        return view('singleRecipe', ['recipe' => $recipe]);
     }
 
     public function index()
@@ -81,8 +85,6 @@ class RecipeController extends Controller
     }
     // osv
 
-    
-    // Delete function
     public function destroy($id)
     {
         Recipe::find($id)->delete();
@@ -94,25 +96,34 @@ class RecipeController extends Controller
     public function edit($id)
     {
         $Recipe = Recipe::findOrFail($id);
- 
-       return view('/edit', ['Recipe'=> $Recipe]);
+
+        return view('/edit', ['Recipe' => $Recipe]);
     }
- 
+
     public function update(Request $request, $id)
     {
         $Recipe = Recipe::findOrFail($id);
         //$this->authorize('update',$Recipe);
- 
+
         $Recipe->recipesNamn = request('recipesNamn');
         $Recipe->recipesIngred = request('recipesIngred');
         $Recipe->recipesBeskrivn = request('recipesBeskrivn');
         $Recipe->categoryId = request('categoryId');
+        $Recipe->image = request('image');
 
-        $this->storeImage($recipe);
-     
+        if (request()->has('image')) {
+
+            // $this->storeImage($Recipe);
+            // Recipe::find($id)->image->delete('image');
+
+            // $Recipe->storeImage($Recipe);
+            $Recipe->update([
+                'image' => request()->image->store('uploads', 'public'),
+            ]);
+        }
+
         $Recipe->save();
-        
+
         return redirect('/home');
     }
 }
-
