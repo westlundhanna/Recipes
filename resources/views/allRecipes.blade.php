@@ -1,4 +1,4 @@
-<!-- Sidan Recept där alla recept finns -->
+
 @extends('layouts.app')
 
 @section('content')

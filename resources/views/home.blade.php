@@ -3,7 +3,6 @@
 @section('content')
 <div class="Container">
     <h1 class="Page-Title">Mina Sidor</h1>
-    <!-- Mina Sidor när man är inloggad --->
     <div class="Form__Container">
         <h3>Skapa ett nytt recept</h3>
         <form method="POST" action="/home" enctype="multipart/form-data">
@@ -41,15 +40,12 @@
                 <h2 class="Recipe--Header">{{ $myRecipe->name }}</h2>
                 <img src="{{ asset('storage/' . $myRecipe->image) }}" class="Recipe__Image">
             </li>
-            <!-- Knappar för Delete & Edit här --->
             <div class="Button__Container">
                 <form method="GET" action="/edit/{{$myRecipe->id}}">
                     <div class="control">
                         <button type="submit" class="Edit--Button"><i class="fas fa-edit"></i></button>
                     </div>
                 </form>
-
-                <!-- Delete Controller--->
                 <form method="POST" action="/recipes/{{$myRecipe->id}}">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}

@@ -1,4 +1,4 @@
-<!---Första sidan --->
+
 @extends('layouts.app')
 
 @section('content')

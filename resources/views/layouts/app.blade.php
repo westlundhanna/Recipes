@@ -4,20 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/bd7880edd1.js"></script>
 
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
     <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -27,12 +23,10 @@
                 {{ 'Recipes For You' }}
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Right Side Of Navbar -->
                 <ul class="Nav__Items">
                     <li class="Nav__Item">
                         <a class="nav-link" href="{{ url('allRecipes') }}">{{ 'Recept' }}</a>
                     </li>
-                    <!-- Authentication Links -->
                     @guest
                         <li class="Nav__Item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Logga in') }}</a>
@@ -46,7 +40,6 @@
                         <li class="Nav__Item">
                             <a class="nav-link" href="{{ url('home') }}">
                                 {{ 'Mina Sidor' }} 
-                                <!-- <span class="caret"></span> -->
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
