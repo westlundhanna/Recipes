@@ -19,7 +19,6 @@ class CreateRecipesTable extends Migration
             $table->string('recipesNamn');
             $table->text('recipesIngred');
             $table->text('recipesBeskrivn');
-            $table->string('image')->nullable();
             $table->unsignedInteger('categoryId');
             $table->string('image')->nullable();
             $table->timestamps();

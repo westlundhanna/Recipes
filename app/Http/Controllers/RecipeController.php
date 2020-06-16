@@ -19,6 +19,8 @@ class RecipeController extends Controller
             'categoryId' => ['required', 'min:1'],
             'image' => ['required']
         ]);
+
+        $attributes['ownerId'] = auth()->id();
         // , function () {
         //     if(request()->hasFile('image')) {
         //         // request()->validate([
