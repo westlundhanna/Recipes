@@ -36,6 +36,3 @@ Route::delete('/recipes/{id}', 'RecipeController@destroy');
 /* PATCH-Routes */
 Route::patch('/home/{id}', 'RecipeController@update');
 
-
-// Route::get('/recept','RecipesController@show')->name('recept');
-// Route::get('/recept', 'receptController')->name('recept');

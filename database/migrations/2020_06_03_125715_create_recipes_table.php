@@ -16,9 +16,9 @@ class CreateRecipesTable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('ownerId');
-            $table->string('recipesNamn');
-            $table->text('recipesIngred');
-            $table->text('recipesBeskrivn');
+            $table->string('name');
+            $table->text('ingredients');
+            $table->text('description');
             $table->string('image')->nullable();
             $table->unsignedInteger('categoryId');
             $table->timestamps();

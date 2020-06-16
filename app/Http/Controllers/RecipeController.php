@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Recipe;
 use Auth;
 
@@ -13,9 +12,9 @@ class RecipeController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'recipesNamn' => ['required', 'min:5'],
-            'recipesIngred' => ['required', 'min:3'],
-            'recipesBeskrivn' => ['required', 'min:1'],
+            'name' => ['required', 'min:5'],
+            'ingredients' => ['required', 'min:3'],
+            'description' => ['required', 'min:1'],
             'categoryId' => ['required', 'min:1'],
             'image' => ['required']
         ]);
@@ -77,9 +76,9 @@ class RecipeController extends Controller
     {
         $Recipe = Recipe::findOrFail($id);
 
-        $Recipe->recipesNamn = request('recipesNamn');
-        $Recipe->recipesIngred = request('recipesIngred');
-        $Recipe->recipesBeskrivn = request('recipesBeskrivn');
+        $Recipe->name = request('name');
+        $Recipe->ingredients = request('ingredients');
+        $Recipe->description = request('description');
         $Recipe->categoryId = request('categoryId');
         $Recipe->image = request('image');
 

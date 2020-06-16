@@ -12,16 +12,16 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('category')->insert([
-            'categoryNamn' => 'Fisk',
+            'name' => 'Fisk',
         ]);
         DB::table('category')->insert([
-            'categoryNamn' => 'Kött',
+            'name' => 'Kött',
         ]);
         DB::table('category')->insert([
-            'categoryNamn' => 'Fågel',
+            'name' => 'Fågel',
         ]);
         DB::table('category')->insert([
-            'categoryNamn' => 'Vegetarisk',
+            'name' => 'Vegetarisk',
         ]);
     }
 }
