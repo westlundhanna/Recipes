@@ -12,10 +12,8 @@ class Category extends Model
 
     public function recipes()
     {
-        return $this->hasMany(Recipe::class);
+        return $this->hasMany('App\Recipe', 'categoryId');
         
-        // $category = App\Recipe::find()->categoryId;
-
     }
 }
 

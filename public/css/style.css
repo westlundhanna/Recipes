@@ -33,11 +33,12 @@ a {
 
 li {
     list-style-type: none;
+    display: flex;
 }
 
 .Nav__Item a {
     color: white;
-    padding: 50px;
+    padding: 0px 20px;
 }
 
 ul.Nav__Items {
@@ -118,6 +119,20 @@ ul.Nav__Items {
 
 .Single-Recipe__Wrapper {
     display: flex;
+    max-width: 1100px;
+}
+
+.Single-Recipe-Text {
+    width: 50%;
+    margin-left: 20px;
+}
+
+.Single__Recipe--Header {
+    padding-bottom: 4px;
+}
+
+.Single__Recipe-Content {
+    padding-bottom: 8px;
 }
 
 .Image__Index {
@@ -202,6 +217,7 @@ input {
     color: #FFFFFF;
     height: 67px;
     font-size: 28px;
+    text-align: center;
 }
 
 .Button__Recipe {

@@ -1,24 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="Wrapper">
-        <h1 class="Page-Title">RECEPT</h1>
-        <form action="/category" method="GET">
-        {{ csrf_field() }}
-            <div>
-                <input type="text" name="recipesCategory">
-                <button type="submit">Filtrera</button>
-            </div>
-        </form>
-        @foreach($recipes->[{categoryId]} = 'categoryNamn')
-            <div>
-                <h1>  {{ $recipe->recipesNamn }} </h1>
-                <h2> {{ $recipe->recipesIngred }} </h2>
-                <p> {{ $recipe->recipesBeskrivn }} </p>
-                <p> {{ $recipe->recipesKategori }} </p>
-            </div>
-        @endforeach
-        
+<div class="Wrapper">
+    <h1 class="Page-Title">{{ $category->categoryNamn }}</h1>
+    <!-- {{ csrf_field() }} -->
+    @if($category->recipes)
+    @foreach($category->recipes as $recipe)
+    <div>
+        <img class="Recipe__Image--extraBig" src="{{ asset('storage/' . $recipe->image) }}" alt="">
+        <p> {{ $recipe->recipesNamn }} </p>
+        <p> {{ $recipe->recipesIngred }} </p>
+        <p> {{ $recipe->recipesBeskrivn }} </p>
     </div>
+    @endforeach  
+    
+    @endif
+</div>
 
 @endsection

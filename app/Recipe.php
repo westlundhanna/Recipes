@@ -19,9 +19,9 @@ class Recipe extends Model
         'image'
     ]; 
 
-    public function recipe()
+    public function category()
     {
-        return $this->belongsTo(Category::class, 'id');
+        return $this->belongsTo('App\Category', 'id');
     }
 
 }

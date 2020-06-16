@@ -10,7 +10,7 @@
         <div class="recept_info">
             <h1>Hitta ditt favorit recept här</h1>
             <p>Lorem ipsum dolor sit amet.</p>
-            <button type="submit" class="Button__Recipe">Recept</button>
+            <a class="nav-link Button__Recipe" href="{{ url('allRecipes') }}">{{ 'Recept' }}</a>
         </div>  
     </div>
 <!---------Exempel kod för Welcome blade------->

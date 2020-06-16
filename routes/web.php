@@ -22,10 +22,10 @@ Route::get('/allRecipes', 'RecipeController@readAll');
 Route::get('/home', 'RecipeController@index');
 Route::get('/edit/{id}', 'RecipeController@edit');
 Route::get('/singleRecipe/{id}', 'RecipeController@readOne');
-// Route::get('/category/{id}', 'CategoryController@filterCategory');
+Route::get('/category', 'CategoryController@filterCategory');
 
 
-/* POST-Routes */    
+/* POST-Routes */
 Route::post('/home', 'RecipeController@store');
 
 
