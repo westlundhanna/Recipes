@@ -9,13 +9,13 @@
         <form method="POST" action="/home" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div>
-                <input type="text" name="recipesNamn" placeholder="Vad heter ditt recept?">
+                <input type="text" name="name" placeholder="Vad heter ditt recept?">
             </div>
             <div>
-                <input type="textarea" name="recipesIngred" placeholder="Fyll i ingredienser">
+                <input type="textarea" name="ingredients" placeholder="Fyll i ingredienser">
             </div>
             <div>
-                <input type="textarea" name="recipesBeskrivn" placeholder="Beskriv receptet">
+                <input type="textarea" name="description" placeholder="Beskriv receptet">
             </div>
             <div>
                 <label for="categoryId">1 = Fisk, 2 = Kött, 3 = Fågel, 4 = Vegetarisk</label>
@@ -33,7 +33,7 @@
         @foreach($myRecipes as $myRecipe)
         <ul class="Recipe__Content">
             <li>
-                <h2 class="Recipe--Header">{{ $myRecipe->recipesNamn }}</h2>
+                <h2 class="Recipe--Header">{{ $myRecipe->name }}</h2>
                 <img src="{{ asset('storage/' . $myRecipe->image) }}" class="Recipe__Image">
             </li>
             <!-- Knappar för Delete & Edit här --->

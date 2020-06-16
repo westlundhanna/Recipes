@@ -6,16 +6,15 @@
         <h3>Uppdatera recept</h3>
         <form method="POST" action="/home/{{$Recipe->id}}" enctype="multipart/form-data">
         {{ method_field('PATCH') }}
- 
         {{ csrf_field() }}
             <div>
-                <input type="text" name="recipesNamn" value="{{$Recipe->recipesNamn}}">
+                <input type="text" name="name" value="{{$Recipe->name}}">
             </div>
             <div>
-                <input type="textarea" name="recipesIngred" value="{{$Recipe->recipesIngred}}">
+                <input type="textarea" name="ingredients" value="{{$Recipe->ingredients}}">
             </div>
             <div>
-                <input type="textarea" name="recipesBeskrivn" value="{{$Recipe->recipesBeskrivn}}">
+                <input type="textarea" name="description" value="{{$Recipe->description}}">
             </div>
             <div>
                 <input type="textarea" name="categoryId" value="{{$Recipe->categoryId}}">

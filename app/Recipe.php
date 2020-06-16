@@ -12,9 +12,9 @@ class Recipe extends Model
 
     protected $fillable = [
         'ownerId',
-        'recipesNamn', 
-        'recipesIngred', 
-        'recipesBeskrivn',
+        'name', 
+        'ingredients', 
+        'description',
         'categoryId',
         'image'
     ]; 

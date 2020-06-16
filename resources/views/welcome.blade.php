@@ -13,5 +13,4 @@
             <a class="nav-link Button__Recipe" href="{{ url('allRecipes') }}">{{ 'Recept' }}</a>
         </div>  
     </div>
-<!---------Exempel kod för Welcome blade------->
 @endsection

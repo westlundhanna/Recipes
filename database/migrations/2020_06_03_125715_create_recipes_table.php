@@ -16,11 +16,11 @@ class CreateRecipesTable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('ownerId');
-            $table->string('recipesNamn');
-            $table->text('recipesIngred');
-            $table->text('recipesBeskrivn');
-            $table->unsignedInteger('categoryId');
+            $table->string('name');
+            $table->text('ingredients');
+            $table->text('description');
             $table->string('image')->nullable();
+            $table->unsignedInteger('categoryId');
             $table->timestamps();
 
             $table->foreign('ownerId')->references('id')->on('users')->onDelete('cascade');

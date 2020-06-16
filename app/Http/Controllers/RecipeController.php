@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Recipe;
 use Auth;
 
@@ -19,44 +18,14 @@ class RecipeController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'recipesNamn' => ['required', 'min:5'],
-            'recipesIngred' => ['required', 'min:3'],
-            'recipesBeskrivn' => ['required', 'min:1'],
+            'name' => ['required', 'min:5'],
+            'ingredients' => ['required', 'min:3'],
+            'description' => ['required', 'min:1'],
             'categoryId' => ['required', 'min:1'],
             'image' => ['required']
         ]);
 
         $attributes['ownerId'] = auth()->id();
-        // , function () {
-        //     if(request()->hasFile('image')) {
-        //         // request()->validate([
-        //             'image' => ['file|image|max:5000'],
-        //         // ]);
-        //     }
-        // });
-
-        // $attributes = request()->validate([
-        //     'recipesNamn' => ['required', 'min:5'],
-        //     'recipesIngred' => ['required', 'min:3'],
-        //     'recipesBeskrivn' => ['required', 'min:1'],
-        //     'categoryId' => ['required', 'min:1']
-        // ]);
-        // $this ->storeImage($recipe)
-
-        // if(request()->hasFile('image')){
-        //     // request()->image);
-        //     request()->validate([
-        //         'image' => 'file|image|max:5000',
-        //     ]);
-        // }    
-
-        // return $attributes;
-
-        // 'ownerId'-> auth()->id();
-
-        // $recipe = Recipe::  ($attributes);
-
-        // return redirect('/home');
 
         $recipe = Recipe::create($attributes);
         $this->storeImage($recipe);
@@ -111,20 +80,14 @@ class RecipeController extends Controller
     public function update(Request $request, $id)
     {
         $Recipe = Recipe::findOrFail($id);
-        //$this->authorize('update',$Recipe);
 
-        $Recipe->recipesNamn = request('recipesNamn');
-        $Recipe->recipesIngred = request('recipesIngred');
-        $Recipe->recipesBeskrivn = request('recipesBeskrivn');
+        $Recipe->name = request('name');
+        $Recipe->ingredients = request('ingredients');
+        $Recipe->description = request('description');
         $Recipe->categoryId = request('categoryId');
         $Recipe->image = request('image');
 
         if (request()->has('image')) {
-
-            // $this->storeImage($Recipe);
-            // Recipe::find($id)->image->delete('image');
-
-            // $Recipe->storeImage($Recipe);
             $Recipe->update([
                 'image' => request()->image->store('uploads', 'public'),
             ]);
