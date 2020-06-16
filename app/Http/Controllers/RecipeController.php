@@ -26,8 +26,11 @@ class RecipeController extends Controller
         ]);
 
         $attributes['ownerId'] = auth()->id();
-
+        
         $recipe = Recipe::create($attributes);
+
+        $recipe->addCategory(request('categoryId'));
+
         $this->storeImage($recipe);
 
         return redirect('/home');
