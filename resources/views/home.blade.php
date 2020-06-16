@@ -18,8 +18,13 @@
                 <input type="textarea" name="description" placeholder="Beskriv receptet">
             </div>
             <div>
-                <label for="categoryId">1 = Fisk, 2 = Kött, 3 = Fågel, 4 = Vegetarisk</label>
-                <input type="textarea" name="categoryId" id="categoryId" placeholder="Kategori, välj en siffra">
+            <select name="categoryId">
+                <option value="0">Välj en kategori</option>
+                <option value="1" name="Fisk">Fisk</option>
+                <option value="2" name="Kött">Kött</option>
+                <option value="3" name="Fågel">Fågel</option>
+                <option value="4" name="Vegetarisk">Vegetarisk</option>
+            </select>
             </div>
             <div>
                 <label for="image">Ladda upp bild</label>
@@ -39,8 +44,6 @@
             <!-- Knappar för Delete & Edit här --->
             <div class="Button__Container">
                 <form method="GET" action="/edit/{{$myRecipe->id}}">
-                    <!-- {{$myRecipe->id}} -->
-                    {{ csrf_field() }}
                     <div class="control">
                         <button type="submit" class="Edit--Button"><i class="fas fa-edit"></i></button>
                     </div>
@@ -48,9 +51,7 @@
 
                 <!-- Delete Controller--->
                 <form method="POST" action="/recipes/{{$myRecipe->id}}">
-                    <!-- {{$myRecipe->id}} -->
                     {{ method_field('DELETE') }}
-
                     {{ csrf_field() }}
                     <div class="control">
                         <button type="submit" class="Delete--Button"><i class="fas fa-trash-alt"></i></button>

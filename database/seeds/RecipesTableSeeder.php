@@ -24,7 +24,7 @@ class RecipesTableSeeder extends Seeder
             'name' => 'Köttgryta',
             'ingredients' => '500g köttfärs, 1 buljongtärning, 1l vatten, 300g svamp, 3,5dl créme fraiche',
             'description' => 'Stek köttfärs, koka upp vatten med buljong, hacka svamp och stek, osv.',
-            'categoryId' => 1,
+            'categoryId' => 2,
             
         ]);
         DB::table('recipes')->insert([
@@ -32,7 +32,14 @@ class RecipesTableSeeder extends Seeder
             'name' => 'Grekisk sallad',
             'ingredients' => '3 tomater, 1 gurka, 1 salladshuvud, 1 pkt fetaost, 1 burk oliver, 0,5dl olivolja',
             'description' => 'Hacka alla grönsaker och fetaosten i tärningar, ringla över olivolja',
-            'categoryId' => 1,
+            'categoryId' => 4,
+        ]);
+        DB::table('recipes')->insert([
+            'ownerId' => 1,
+            'name' => 'Pannkakor',
+            'ingredients' => 'Mjölk, mjöl, socker, vaniljsocker, ägg, kakor',
+            'description' => 'Mixa alla ingredienserna och stek i smör',
+            'categoryId' => 4,
         ]);
     }
 }

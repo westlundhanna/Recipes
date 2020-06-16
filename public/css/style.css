@@ -313,7 +313,7 @@ input {
 
 .Recipe__Container {
     display: flex;
-    width: 90%;
+    width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 30px;

@@ -17,7 +17,13 @@
                 <input type="textarea" name="description" value="{{$Recipe->description}}">
             </div>
             <div>
-                <input type="textarea" name="categoryId" value="{{$Recipe->categoryId}}">
+            <select name="categoryId">
+                <option value="0">Välj kategori:</option>
+                <option value="1" name="Fisk">Fisk</option>
+                <option value="2" name="Kött">Kött</option>
+                <option value="3" name="Fågel">Fågel</option>
+                <option value="4" name="Vegetarisk">Vegetarisk</option>
+            </select>
             </div>
             <div>
                 <img src="{{ asset('storage/' . $Recipe->image) }}" class="Recipe__Image">

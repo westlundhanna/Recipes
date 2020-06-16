@@ -24,6 +24,9 @@ class Recipe extends Model
         return $this->belongsTo('App\Category', 'id');
     }
 
-}
+    public function addCategory($categoryId)
+    {
+        $this->category()->where(compact('categoryId'));
+    }
 
-// return view('recept');
+}
