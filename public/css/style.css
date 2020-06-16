@@ -141,6 +141,10 @@ ul.Nav__Items {
     border-radius: 50px;
 }
 
+.Recipe--Header {
+    width: 72%;
+}
+
 
 /*---- style Login--------*/
 
@@ -207,7 +211,9 @@ input {
 }
 
 .Button__Login,
-.Button__Recipe {
+.Button__Recipe,
+.Filter__Button,
+.Register__Button {
     border: none;
     background: #B74921;
     margin: 2vh;
@@ -220,13 +226,45 @@ input {
     text-align: center;
 }
 
+.Filter__Button {
+    width: 100px;
+    height: 44px;
+    font-size: 16px;
+}
+
 .Button__Recipe {
     width: 203px;
 }
 
 .Button__Login:hover,
-.Button__Recipe:hover {
+.Button__Recipe:hover,
+.Filter__Button:hover,
+.Register__Button:hover {
     background-color: #E46638;
+    cursor: pointer;
+}
+
+.Button__Container {
+    display: flex;
+    justify-content: center;
+}
+
+.Delete--Button,
+.Edit--Button {
+    border: none;
+}
+
+.fa-edit {
+    font-size: 20px;
+    color: green;
+    margin: 0px 4px;
+    cursor: pointer;
+}
+
+.fa-trash-alt {
+    font-size: 20px;
+    color: red;
+    margin: 0px 4px;
     cursor: pointer;
 }
 
@@ -241,6 +279,7 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .Recipe__Content {
@@ -258,7 +297,6 @@ input {
     color: white;
     width: 100%;
     height: 99%;
-    /* opacity: 0; */
 }
 
 .Recipe__Link {
@@ -277,8 +315,32 @@ input {
     display: flex;
     width: 90%;
     justify-content: space-between;
-    /* width: 95%; */
     flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.Recipe__List--Wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.Recipes__Header {
+    height: 100px;
+}
+
+
+/*--- Category ---*/
+
+.Category__Container {
+    max-width: 1100px;
+    display: flex;
+}
+
+.Category__Recipe {
+    width: 33%;
+    margin: 10px;
 }
 
 

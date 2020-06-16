@@ -3,9 +3,22 @@
 
 @section('content')
 <div class="Container">
-    <div>
+    <div class="Recipes__Header">
         <h1 class="Page-Title">RECEPT</h1>
     </div>
+    <form action="/category" method="GET">
+            <!-- {{ csrf_field() }} -->
+            <div class="Recipe__Filter">
+                <select name="category">
+                    <option value="0">Välj en kategori</option>
+                    <option value="1">Fisk</option>
+                    <option value="2">Kött</option>
+                    <option value="3">Fågel</option>
+                    <option value="4">Vegetarisk</option>
+                </select>
+                <button type="submit" class="Filter__Button">Filtrera</button>
+            </div>
+        </form>
 
     <div class="Recipes__Wrapper">
         <div class="Recipe__Container">
@@ -23,9 +36,9 @@
             @endforeach
         </div>
 
-        <form action="/category" method="GET">
+        <!-- <form action="/category" method="GET">
             <!-- {{ csrf_field() }} -->
-            <div class="Recipe__Filter">
+            <!-- <div class="Recipe__Filter">
                 <select name="category">
                     <option value="0">Välj en kategori</option>
                     <option value="1">Fisk</option>
@@ -35,7 +48,7 @@
                 </select>
                 <button type="submit">Filtrera</button>
             </div>
-        </form>
+        </form> -->
 
 
     </div>
